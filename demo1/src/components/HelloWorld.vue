@@ -1,7 +1,5 @@
 <template>
   <div>
-
-
     <el-card class="box-card">
       <div class="clearfix" style="margin-left: -600px;">
         操作员:<el-select v-model="value" placeholder="请选择">
@@ -17,20 +15,16 @@
           </el-option>
         </el-select>
       </div>
-
       <div class="block" style="margin-top: 20px; margin-left: -1000px;">
         <span class="demonstration">选择日期：</span>
         <el-date-picker v-model="value2" type="daterange" align="right" unlink-panels range-separator="至"
           start-placeholder="开始日期" end-placeholder="结束日期" :picker-options="pickerOptions">
         </el-date-picker>
       </div>
-
     </el-card>
-
     <el-card style="margin-top: 20px; ">
       <div class="table">
         <table border="1" width="100%">
-
           <thead>
             <tr class="firstHead">
               <th rowspan="2" colspan="1">
@@ -87,7 +81,7 @@
             </tr>
             <tr style="color:green;font-size: 18px;">
               <td colspan="2">小计</td>
-              <td>{{getDayTonCount}}</td>
+              <td></td>
               <td></td>
               <td></td>
               <td></td>
@@ -100,12 +94,10 @@
       </div>
     </el-card>
   </div>
-
 </template>
 
 <script>
 /* eslint-disable*/
-
 export default {
   data() {
     return {
@@ -163,9 +155,6 @@ export default {
         }]
       },
       arrList: [],
-      v1: 1,
-      v2: 2,
-
     }
   },
   methods: {
@@ -332,7 +321,7 @@ export default {
   },
   computed: {
     getDayTonCount() {
-      let earr = [{}];
+      let earr = [];
       this.arrList.forEach((item) => {
         let dayCount = 0;
         let dayWeight = 0;
@@ -343,14 +332,12 @@ export default {
           dayWeight += Number(i.daySaleMoney);
           monthCount += Number(i.monthSaleCount);
           monthWeight += Number(i.monthSaleMoney);
-          for (let z = 0; z < i.length; z++) {
-            earr[z].dc = dayCount;
-            earr[z].dw = dayWeight;
-            earr[z].mc = monthCount;
-            earr[z].mw = monthWeight;
-          }
-          return earr
+          return dayCount, dayWeight, monthCount, monthWeight
         });
+        earr.push(dayCount);
+        earr.push(dayWeight);
+        earr.push(monthCount);
+        earr.push(monthWeight);
         return earr;
       })
       console.log(earr);
