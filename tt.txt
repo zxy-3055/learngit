@@ -6,3 +6,4 @@
 master
 dev -尝试禁止fast forward
 git is a free and cool software
+
