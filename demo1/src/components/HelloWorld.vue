@@ -81,11 +81,11 @@
             </tr>
             <tr style="color:green;font-size: 18px;">
               <td colspan="2">小计</td>
+              <td>{{arr.xjdayCount}}</td>
+              <td>{{arr.xjdayWeight}}</td>
               <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
+              <td>{{arr.xjmonthCount}}</td>
+              <td>{{arr.xjmonthWeight}}</td>
               <td></td>
               <td></td>
             </tr>
@@ -187,11 +187,13 @@ export default {
           monthSaleCount: '41',
           monthSaleMoney: '1100'
         }],
-        monthMetaCount: 'month1111',
-        monthMoneyCount: 'month2222',
-        dayReturnMoney: '32.1日回款',
-        monthReturnMoney: '32.1月回款',
-        dayRemainMoney: 10,
+        dayMetaCount: '169',
+        dayMoneyCount: '5000',
+        monthMetaCount: '176',
+        monthMoneyCount: '3332',
+        dayReturnMoney: '37.1',
+        monthReturnMoney: '62.1',
+        dayRemainMoney: 89,
       }, {
         id: '12987123',
         constumer: '2流川物料公司',
@@ -214,9 +216,13 @@ export default {
           monthSaleCount: '40',
           monthSaleMoney: '1100'
         }],
-        dayReturnMoney: '32.1',
-        monthReturnMoney: '32.1',
-        dayRemainMoney: 10
+        dayMetaCount: '136',
+        dayMoneyCount: '3900',
+        monthMetaCount: '135',
+        monthMoneyCount: '2232',
+        dayReturnMoney: '12.1',
+        monthReturnMoney: '82',
+        dayRemainMoney: 41
       }, {
         id: '12987124',
         constumer: '3流川物料公司',
@@ -238,10 +244,14 @@ export default {
           daySaleMoney: '1100',
           monthSaleCount: '41',
           monthSaleMoney: '1100'
-        },],
-        dayReturnMoney: '32.1',
-        monthReturnMoney: '32.1',
-        dayRemainMoney: 10
+        }],
+        dayMetaCount: '129',
+        dayMoneyCount: '3900',
+        monthMetaCount: '130',
+        monthMoneyCount: '3300',
+        dayReturnMoney: '62.6',
+        monthReturnMoney: '52',
+        dayRemainMoney: 38
       }, {
         id: '12987125',
         constumer: '4流川物料公司',
@@ -282,9 +292,13 @@ export default {
           monthSaleCount: '41',
           monthSaleMoney: '1100'
         }],
-        dayReturnMoney: '32.1',
-        monthReturnMoney: '32.1',
-        dayRemainMoney: 108
+        dayMetaCount: '259',
+        dayMoneyCount: '7200',
+        monthMetaCount: '258',
+        monthMoneyCount: '5532',
+        dayReturnMoney: '22',
+        monthReturnMoney: '32',
+        dayRemainMoney: 70
       }, {
         id: '12987126',
         constumer: '5流川物料公司',
@@ -312,40 +326,35 @@ export default {
           daySaleMoney: '1100',
           monthSaleCount: '41',
           monthSaleMoney: '1100'
-        },],
-        dayReturnMoney: '32.1',
-        monthReturnMoney: '32.1',
-        dayRemainMoney: 102
-      },]
-    }
-  },
-  computed: {
+        }],
+        dayMetaCount: '177',
+        dayMoneyCount: '5000',
+        monthMetaCount: '176',
+        monthMoneyCount: '3332',
+        dayReturnMoney: '32.5',
+        monthReturnMoney: '78.3',
+        dayRemainMoney: 61
+      }]
+    },
     getDayTonCount() {
-      let earr = [];
       this.arrList.forEach((item) => {
-        let dayCount = 0;
-        let dayWeight = 0;
-        let monthCount = 0;
-        let monthWeight = 0;
+        item.xjdayCount = 0;
+        item.xjdayWeight = 0;
+        item.xjmonthCount = 0;
+        item.xjmonthWeight = 0;
         item.category.forEach((i) => {
-          dayCount += Number(i.daySaleCount);
-          dayWeight += Number(i.daySaleMoney);
-          monthCount += Number(i.monthSaleCount);
-          monthWeight += Number(i.monthSaleMoney);
-          return dayCount, dayWeight, monthCount, monthWeight
+          item.xjdayCount += Number(i.daySaleCount);
+          item.xjdayWeight += Number(i.daySaleMoney);
+          item.xjmonthCount += Number(i.monthSaleCount);
+          item.xjmonthWeight += Number(i.monthSaleMoney);
         });
-        earr.push(dayCount);
-        earr.push(dayWeight);
-        earr.push(monthCount);
-        earr.push(monthWeight);
-        return earr;
       })
-      console.log(earr);
-      return earr;
     },
   },
+ 
   mounted() {
     this.arrList = this.getData();
+    this.getDayTonCount();
   }
 }
 </script>
