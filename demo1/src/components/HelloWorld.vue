@@ -87,7 +87,7 @@
             </tr>
             <tr style="color:green;font-size: 18px;">
               <td colspan="2">小计</td>
-              <td></td>
+              <td>{{getDayTonCount}}</td>
               <td></td>
               <td></td>
               <td></td>
@@ -332,7 +332,7 @@ export default {
   },
   computed: {
     getDayTonCount() {
-      let earr = [];
+      let earr = [{}];
       this.arrList.forEach((item) => {
         let dayCount = 0;
         let dayWeight = 0;
@@ -343,12 +343,14 @@ export default {
           dayWeight += Number(i.daySaleMoney);
           monthCount += Number(i.monthSaleCount);
           monthWeight += Number(i.monthSaleMoney);
-          return dayCount, dayWeight, monthCount, monthWeight
+          for (let z = 0; z < i.length; z++) {
+            earr[z].dc = dayCount;
+            earr[z].dw = dayWeight;
+            earr[z].mc = monthCount;
+            earr[z].mw = monthWeight;
+          }
+          return earr
         });
-        earr.push(dayCount);
-        earr.push(dayWeight);
-        earr.push(monthCount);
-        earr.push(monthWeight);
         return earr;
       })
       console.log(earr);
