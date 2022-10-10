@@ -187,10 +187,6 @@ export default {
           monthSaleCount: '41',
           monthSaleMoney: '1100'
         }],
-        dayMetaCount: '169',
-        dayMoneyCount: '5000',
-        monthMetaCount: '176',
-        monthMoneyCount: '3332',
         dayReturnMoney: '37.1',
         monthReturnMoney: '62.1',
         dayRemainMoney: 89,
@@ -216,10 +212,6 @@ export default {
           monthSaleCount: '40',
           monthSaleMoney: '1100'
         }],
-        dayMetaCount: '136',
-        dayMoneyCount: '3900',
-        monthMetaCount: '135',
-        monthMoneyCount: '2232',
         dayReturnMoney: '12.1',
         monthReturnMoney: '82',
         dayRemainMoney: 41
@@ -245,10 +237,6 @@ export default {
           monthSaleCount: '41',
           monthSaleMoney: '1100'
         }],
-        dayMetaCount: '129',
-        dayMoneyCount: '3900',
-        monthMetaCount: '130',
-        monthMoneyCount: '3300',
         dayReturnMoney: '62.6',
         monthReturnMoney: '52',
         dayRemainMoney: 38
@@ -292,10 +280,6 @@ export default {
           monthSaleCount: '41',
           monthSaleMoney: '1100'
         }],
-        dayMetaCount: '259',
-        dayMoneyCount: '7200',
-        monthMetaCount: '258',
-        monthMoneyCount: '5532',
         dayReturnMoney: '22',
         monthReturnMoney: '32',
         dayRemainMoney: 70
@@ -327,10 +311,6 @@ export default {
           monthSaleCount: '41',
           monthSaleMoney: '1100'
         }],
-        dayMetaCount: '177',
-        dayMoneyCount: '5000',
-        monthMetaCount: '176',
-        monthMoneyCount: '3332',
         dayReturnMoney: '32.5',
         monthReturnMoney: '78.3',
         dayRemainMoney: 61
@@ -351,7 +331,6 @@ export default {
       })
     },
   },
- 
   mounted() {
     this.arrList = this.getData();
     this.getDayTonCount();
