@@ -88,7 +88,7 @@
             <tr style="color:green;font-size: 18px;">
               <td colspan="2">小计</td>
               <td></td>
-              <td>{{sendTest}}</td>
+              <td></td>
               <td></td>
               <td></td>
               <td></td>
